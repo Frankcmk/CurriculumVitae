@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:value="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="..static/css/cv.css" th:href="@{/css/cv.css}" rel="stylesheet"/>
+    <title>Practica 2</title>
+</head>
+<body>
+
+    <header id="principal">
+        <h3 id="titulo"> Curriculum Vitae : Practica 2</h3>
+    </header>
+
+    <hr class="barra">
+
+    <aside>
+        <br>
+
+        <img class="center" th:src="@{/img/perfil.PNG}"/>
+        <br>
+
+        <div value="Nombre: " th:text="${'Nombre: ' + datos.nombre}"> </div>
+        <div value="Apellido Paterno: " th:text="${'Apellido paterno: ' + datos.apellidoP}"> </div>
+        <div value="Apellido Materno: " th:text="${'Apellido materno: ' +datos.apellidoM}"> </div>
+        <div value="Telefono: " th:text="${'Telefono: ' +datos.telefono}"> </div>
+        <div value="Correo: " th:text="${'Correo: ' +datos.correoE}"> </div>
+
+
+
+    </aside>
+
+    <section>
+        <article>
+            <b><p> Estudios</p></b>
+            <tr th:each="estudios : ${datos.estudios}">
+                <td> •<span th:text="${estudios}"> - </span></td>
+                <br>
+            </tr>
+        </article>
+
+        <hr class="barra">
+        <article>
+            <b><p> Trayectoria Complementaria</p></b>
+            <tr th:each="tray : ${datos.trayCompl}">
+                <td> •<span th:text="${tray}"> - </span></td>
+                <br>
+            </tr>
+        </article>
+
+        <hr class="barra">
+        <article>
+            <b><p> Experiencia</p></b>
+            <tr th:each="exp : ${datos.expLabo}">
+                <td> •<span th:text="${exp}"> - </span></td>
+                <br>
+            </tr>
+        </article>
+
+        <hr class="barra">
+        <article>
+            <b><p> Idiomas</p></b>
+            <tr th:each="idm: ${datos.idiomas}">
+                <td> •<span th:text="${idm}"> - </span></td>
+                <br>
+            </tr>
+        </article>
+    </section>
+
+</body>
+</html>
